@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+% Allow the usage of UTF-8 characters
+\usepackage[utf8]{inputenc}
+% Allow the usage of graphics (.png, .jpg)
+\usepackage{graphicx}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{array}
+\usepackage{stackengine}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\title{Математический анализ 2-ой семестр}
+\author{Никитская Варвара}
+\ignorespacesafterend 
+% Start the document
+\begin{document}
+
+\tableofcontents
+\newpage
+\section{Неопределенные интегралы}
+
+\subsection{Основные определения}
+
+\quad\textbf{ Опр.:} Пусть f(x) определена на (a,b), если $\exists F(x) \in D(a,b)$, то F(x) называется первообразной функцией f(x).
+
+\vspace{\baselineskip}
+
+\textbf{Опр.:} Пусть f(x) определена на (a,b), совокупность всех первообразных функций для f(x) называется неопределённым интегралом и обозначается: $\int$f(x)dx
+
+\vspace{\baselineskip}
+
+\textbf{Теорема:} Пусть F(x) является первообразной для f(x) на (a,b). Тогда $\int$f(x)dx = $\{ f(x) + C \}$ C=const $\in \mathbb{R}$.\newline
+
+\textbf{Доказательство:}
+\begin{enumerate} 
+\item $(F(x) + C)' = f(x) + 0 = f(x)$  
+\item Пусть G(x) - первообразная $f(x)$ отличная от F(x). (G(x) - F(x))' = $f(x) - f(x)$ = 0. По следствию из теоремы Лагранжа G(x) - F(x) = const.
+\end{enumerate}
+
+\textbf{Свойства $\int$}:
+\begin{enumerate}
+\item $\forall c\in\mathbb{R}, \int cf(x)dx=c\int f(x)dx$ 
+\item $\int (f\pm g)dx = \int fdx\pm\int gdx$
+\item (Замена переменной) Пусть F(x) является первообразной для $f(x)$ на (a,b). Пусть $\varphi (t) \in D(\alpha ,\beta )$ и $\varphi ((\alpha ,\beta )) \subset (a,b)$, тогда F($\varphi (t)$) является первообразной для F'($\varphi$(t))$\varphi '$(t)
+\item (Интегрирование по частям) Пусть $u,v \in D(a,b).$ (uv)' = u'v + v'u. $\int (uv)'dx = \int (u'v + v'u)dx = \int u'vdx + \int v'udx \Rightarrow$ $\int u'vdx = uv - \int uv'dx$. \newline $\int udv = uv - \int vdu$. 
+\end{enumerate}
+\subsection{Таблица интегралов}
+\begin{center}
+\begin{tabular} {|>{\centering\arraybackslash}m{1in} | >{\centering\arraybackslash}m{1in} |}
+\hline
+Интеграл & Значение \\ [2ex]
+\hline
+$\int 0dx$ & const \\ [5ex]
+\hline
+$\int x^{a}dx$ & $\frac{x^{a+1}}{a+1} + C, a \ne -1$ \\ [5ex]
+\hline 
+
+$\int \frac{1}{x}dx$ & $\ln|x|$ + C\footnotemark\\ [5ex]
+\hline
+$\int e^{x}dx$ & $e^{x}$ \\ [5ex]
+\hline
+$\int sinxdx$ & $-cosx + C$ \\ [5ex]
+\hline
+$\int cosxdx$ & $sinx + C$ \\ [5ex]
+\hline
+$\int \frac{1}{cos^{2}x}dx$ & tgx + C \\ [5ex]
+\hline 
+$\int \frac{1}{sin^{2}x}dx$ & -ctgx + C \\ [5ex]
+\hline
+$\int \frac{1}{\sqrt{1-x^2}}dx$ & arcsinx + C \\ [5ex]
+\hline
+$\int \frac{1}{1+x^2}dc$ & arctgx + C \\ [5ex]
+\hline
+$\int \frac{1}{\sqrt{x^{2} \pm 1}}dx$ & $\ln(x + \sqrt{x^{2} \pm 1})$ + C\footnotemark\\ [5ex]
+\hline 
+$\int \frac{1}{x^{2}-1}dx$ & $\frac{1}{2}\ln \frac{x-1}{x+1}$ + C\footnotemark \\ [5ex]
+\hline
+\end{tabular}
+\end{center}
+\footnotetext[1]{В данном случае C принимает два разных значения для x>0 и x<0}
+\footnotetext[2]{Длинный логарифм}
+\footnotetext[3]{Высокий логарифм}
+\newpage
+\subsection{Интегрирование рациональных дробей}
+
+\quad Пусть, P(x) и Q(x) - многочлены. Q(x) = $(x-a_{1})^{\alpha_{1}}...(x-a_{n})^{\alpha_{n}}(x^2 + p_{1}x + q_{1})^{\beta_{1}}...(x^2 + p_{k}x + q_{k})^{\beta_{k}}$ Тогда: $$\int \frac{P(x)}{Q(x)}dx = \int (\widetilde{P}(x) + \sum_{j=1}^{n}(\sum_{u=1}^{\alpha_{j}}\frac{\Psi_{ju}}{(x-a_j)^{\alpha_{ju}}}) + \sum_{j=1}^{k}(\sum_{v=1}^{\beta_{k}}\frac{\Phi_{kv} x + \Omega_{kv}}{(x^2 + p_{k}x+q_{k})^{\beta_kx}}))$$
+
+\textbf{Примеры}:
+\begin{enumerate}
+\item $\int \frac{dx}{(x-a)^{n}} = \int \frac{d(x-a)}{(x-a)^{n}} = \begin{cases} \ln\left| x-a\right| , n=1 \\ \frac{(x-a)^{1-n}}{1-n}, n>1 \end{cases}$
+\item $\int \frac{\alpha x + \beta}{(x^2 + px + q)^{k}}dx$ = $\int \frac{\alpha x + \beta}{(x^2 + px + q)^{k}}d(x+\frac{p}{2})$ = $\int\frac{(\alpha_1 t + \beta_1)dt}{(t^2 + q_1^2)^k}=\int\frac{\alpha_1 tdt}{(t^2 + q_1^2)^k}^{\bullet} + \int\frac{\beta_1dt}{(t^2+q_1^2)^k}$*
+\newline 
+$\bullet \int\frac{\alpha_1 tdt}{(t^2 + q_1^2)^k} = \frac{1}{2}\int\frac{dt^2}{(t^2 + q_1^2)^k}=\frac{1}{2}\int\frac{d(t^2+q_1^2)}{(t^2+q_1^2)^k}=\begin{cases} \frac{1}{2}\l(t^2+q_1^2), k=1 \\ \frac{1}{2}\frac{(t^2+q_1^2)^{1-k}}{1-k}, k>1\end{cases}$\newline
+* $I_k = \int\frac{dt}{(t^2+q_1^2)^k}\stackon{=}{\tiny{4}}\frac{t}{t^2+q_1^2)^k} - \int td(\frac{t}{(t^2+q_1^2)^k})=\frac{t}{(t^2+q_1^2)^k} + 2k\int\frac{t^2dt}{(t^2+q_1^2)^{k+1}} = \frac{t}{(t^2+q_1^2)^k} + 2k\int\frac{t^2+q_1^2-q_1^2dt}{(t^2+q_1^2)^{k+1}} = \frac{t}{(t^2+q_1^2)^k} + 2k\int\frac{t^2+q_1^2dt}{(t^2+q_1^2)^{k+1}} + 2k\int\frac{-q_1^2dt}{(t^2+q_1^2)^{k+1}} = \frac{t}{(t^2+q_1^2)^k} + 2k\int\frac{dt}{(t^2+q_1^2)^{k}} - 2kq_1\int\frac{dt}{(t^2+q_1^2)^{k+1}} = \frac{t}{(t^2+q_1^2)^k} + 2kI_k -2kq_1I_{k+1}$
+$$I_{k+1}=\frac{(2k-1)I_k}{2kq_1^2}, I_1-\text{арктангенс}$$ 
+\end{enumerate}
+\textbf{Замечание:} иногда (особенно при маленьких степенях k) бывает полезно: $\int\frac{dx}{(t^2+q_1^2)^k}$ замена $t = q_1 + tgz \Rightarrow \int\frac{cos^{2k-2}zdz}{q_1^{2k-1}}$ (из 3 свойства интегрирования)
+\footnotetext[4]{Следует из $\int udv=uv - \int vdu$}
+\subsection{Метод Остроградского}
+
+\quad$\frac{P(x)}{Q(x)} (\text{правильная дробь}) = \frac{P(x)}{\substack{n \\ \prod \\ i=1}(x-a_i)^{\alpha_1}\substack{m \\ \prod \\ j=1}(x^2+b_jx+c_j)^{\beta_j}}=\frac{P_1(x)}{\substack{n \\ \prod \\ i=1}(x-a_i)^{\alpha_1-1}\substack{m \\ \prod \\ j=1}(x^2+b_jx+c_j)^{\beta_j-1}}^* + \int\frac{P_2(x)dx}{\substack{n \\ \prod \\ i=1}(x-a_i)\substack{m \\ \prod \\ j=1}(x^2+b_jx+c_j)}$ \newline \newline
+* - правильная дробь, знаменатель которой равен НОД(Q(x), Q'(x)).
+\section{Определённый интеграл Римана}
+
+\quad\textbf{Опр.} $\{x_i\}_{i=0}^n \in [a,b]$ называется разбиением [a,b], если $a=x_0<x_1\cdots <x_{n-1}<x_n=b.$ $T^+_{[a,b]}$ или  $b=x_0>x_1>\cdots>x_{n-1}>x_n=a.$ $  T^-_{[a,b]}$ Отрезки $[x_{i-1}, x_i]$ или $[x_{i}, x_{i-1}]$ обозначаются $\Delta x_i.$ Также обозначается: $\left| x_i-x_{i-1}\right| = \Delta x_i.$ $d(T) = max\left| x_i-x_{i-1}\right|$ - диаметр разбиения.
+\newline
+
+\textbf{Опр.} Рассмотрим $T_{[a,b]}$. Если взяты точки $\{\xi_i\}_{i=1}^n \forall i \xi_i \in \Delta x_i$, то $\{\{x_i\}_{i=0}^n, \{\xi_i\}_{i=1}^n\}$ называется размеченным разбиением и обозначается $T(\xi)$.  $\xi$ называется разметкой. 
+
+\textbf{Опр.} Пусть $f(x)$ определена на $[a,b]$. Рассмотрим $T_{[a,b]}(\xi)$. \newline Если $\exists I \in \mathbb{R}: \forall \epsilon > 0 \exists \delta_{\epsilon} > 0: \forall T(\xi)$ с $d(T) < \delta_{\epsilon} \left| \displaystyle\sum_{i=1}^N(f(\xi_i )(x_i - x_{i-1})) - I \right| < \epsilon $, то говорят, что $f(x)$ интегрируема по Риману на $[a,b]$, I называются интегралом Римана от $f(x)$ по $[a,b]$ и обозначают: $I = \int_a^b f(x)dx$ или $\int_b^a f(x)dx$ при $T^+$ и $T^-$, $f \in R[a,b]$
+\newline 
+
+\textbf{Замечание:} можно считать определением интееграла педелом интегральных сумм. 
+   $\displaystyle \lim_{d\to 0} \sum_{i=1}^N f(\xi_i)(x_i-x_{i-1}) = I$ (мы ввели определение предела для нового объекта)
+\newline
+
+\textbf{Утв.} Если $\exists \int_a^b f(x)dx$, то $\exists \int_b^a f(x)dx$ и $\int_a^b f(x)dx$ = -$\int_b^a f(x)dx$
+
+\textbf{Доказательство:} очев.
+\newline
+
+\textbf{Теорема:} Если $f(x) \in R[a,b]$, то она ограничена на $[a,b]$
+
+\textbf{Доказательство:} \newline 
+
+По т. Больцано-Вейершстрасса пусть: \newline 
+
+$\exists \{x_n\}_{n=1}^{\infty} \subset [a,b] \exists \displaystyle\lim_{n\to\infty} = \overline{x}: \left| f(x_n)\right| >n$, предположим что \newline
+
+ $\left| \displaystyle \sum_{i=1}^Nf(\xi_i)(x_i-x_{i-1}) - I \right| < 1 \Rightarrow -1  + \sum_{i=1, i\ne k}^Nf(\xi_i)(x_i-x_{i-1}) + I < f(\xi_k)(x_k-x_{k-1}) < 1 + \sum_{i=1}^Nf(\xi_i)(x_i-x_{i-1}) + I$. k выбираем так, чтобы $\overline{x}$ лежала в этом промежутке $\Rightarrow$ в окрестности этой точки функция стремится к бесконечности, но она ограничена двумя числами - противоречие.
+
+\end{document}
+
